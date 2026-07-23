@@ -1,0 +1,35 @@
+# Data files (personal Garmin exports)
+*.csv
+*.json
+*.fit
+*.tcx
+*.gpx
+data/
+raw/
+clean/
+
+# Environment files
+.env
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+
+# IDE settings
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+/src/garmin_test.py
