@@ -2,7 +2,7 @@ import pandas as pd
 from pathlib import Path
 
 # clean activities
-activities = pd.read_csv("data/clean/raw_activities.csv")
+activities = pd.read_csv("data/processed/raw_activities.csv")
 
 # print(activities.head())
 # print(activities.info())
@@ -100,4 +100,4 @@ activities_clean = activities[clean_columns]
 activities_clean = activities_clean.drop_duplicates("activity_id")
 
 # Load clean version of data
-activities_clean.to_csv("data/clean/clean_activities.csv", index=False)
+activities_clean.to_csv("data/processed/clean/clean_activities.csv", index=False)
