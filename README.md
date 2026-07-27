@@ -1,6 +1,7 @@
 This project is designed to allow me to, in one script: log in to Garmin, retrieve whatever data I want, structure and clean the data into .csv files that can be used for analysis, and analyze the data however I want to. The script has been automated to run every day at a certain time and pull all of the data for that day from the Garmin API.
 Ultimately, there will be a dashboard with some data visualization, and moe advanced analytics. 
 
+```text
 All data exists only on my computer, and does not get uploaded to git, but is structured as follows:
 data/
     raw/
@@ -26,4 +27,4 @@ src/
         garmin_sleep.py -> includes helper functions for sleep cleaning and analysis
     retrieve_data.py -> actually logs into garmin and pulls all of the data
     pipeline.py -> combines all programs into one data pipeline to maximize efficiency (retrieval through cleaning)
-
+```
