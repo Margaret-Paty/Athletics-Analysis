@@ -6,7 +6,6 @@
 *.gpx
 data/
 raw/
-clean/
 
 # Environment files
 .env

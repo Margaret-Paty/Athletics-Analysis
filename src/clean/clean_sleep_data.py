@@ -2,27 +2,7 @@ import pandas as pd
 from pathlib import Path
 import ast
 
-sleep = pd.read_csv("data/processed/raw_sleep.csv")
-
-# print(sleep.head())
-# print(sleep.info())
-
-# columns = 
-# sleep_start
-# sleep_end
-# date
-# deep_minutes
-# light_minutes
-# rem_minutes
-# awake_minutes
-# unmeasureable_minutes
-# overall_score
-# quality_score
-# duration_score
-# recovery_score
-# deep_score
-# rem_score
-# light_score
+sleep = pd.read_csv("data/processed/raw_sleep_test.csv")
 
 # Convert date and time related columns
 sleep["sleep_start"] = pd.to_datetime(sleep["sleepStartTimestampGMT"], unit="ms")
@@ -79,7 +59,4 @@ clean_columns = [
 # Put clean columns together for new dataframe
 sleep_clean = sleep[clean_columns]
 
-sleep_clean.to_csv("data/processed/clean/clean_sleep.csv", index=False)
-
-
-
+sleep_clean.to_csv("data/processed/clean/clean_sleep_test.csv", index=False)
