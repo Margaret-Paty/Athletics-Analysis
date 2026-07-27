@@ -25,7 +25,7 @@ data/
     processed/
         raw_{metric}.csv
         clean/
-            clean{metric}.csv
+            clean_{metric}.csv
 ```
 ## Project Structure
 
