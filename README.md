@@ -51,8 +51,8 @@ src/
  Module | Purpose 
 
 - `retrieve_data.py` | Logs into Garmin Connect and downloads new data 
-- `pipeline.py` | Runs the complete ETL pipeline |
-- `structure/` | Converts raw Garmin JSON into standardized CSV files |
--  `clean/` | Produces analysis-ready datasets |
--  `config/` | Stores schema definitions used during normalization |
--  `utils/` | Helper functions shared across the project |
+- `pipeline.py` | Runs the complete ETL pipeline 
+- `structure/` | Converts raw Garmin JSON into standardized CSV files 
+-  `clean/` | Produces analysis-ready datasets 
+-  `config/` | Stores schema definitions used during normalization 
+-  `utils/` | Helper functions shared across the project 
