@@ -6,16 +6,17 @@ import json
 import os
 
 # Path for the raw  data
-PATH_RAW = Path("data/raw/")
+def retrieve_data():
+    PATH_RAW = Path("data/raw/")
 
-# Make sure you use a .env file, don't have your password just in the world
-BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(BASE_DIR/".env")
+    # Make sure you use a .env file, don't have your password just in the world
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    load_dotenv(BASE_DIR/".env")
 
-username = os.getenv("GARMIN_USERNAME")
-password = os.getenv("GARMIN_PASSWORD")
+    username = os.getenv("GARMIN_USERNAME")
+    password = os.getenv("GARMIN_PASSWORD")
 
-def main():
+
     # creating the client to login and actually get the data
     garmin = Garmin(username, password)
 
@@ -24,7 +25,7 @@ def main():
     today = datetime.now().strftime("%Y-%m-%d")
 
     # retrieve all activity data
-    activities = garmin.get_activities(0,1)
+    activities = garmin.get_activities_by_date(today)
 
 
     # pipe to raw file
@@ -32,7 +33,7 @@ def main():
 
     with open(file, "w") as f:
         json.dump(activities, f, indent=4)
-    
+        
     # Get sleep data for today
     sleep = garmin.get_sleep_data(today)
 
@@ -48,10 +49,7 @@ def main():
     file = (PATH_RAW / "race predictions/" / f"predictions_{today}.json")
     with open(file, "w") as f:
         json.dump(race_predictions, f, indent=4)
-
-
-
+    print("data retrieved")
 
 if __name__ == "__main__":
-    main()
-
+    retrieve_data()

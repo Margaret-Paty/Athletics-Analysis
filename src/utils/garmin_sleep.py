@@ -14,9 +14,31 @@ def parse_sleep_scores(value):
 
 def normalize_sleep_scores(scores):
 
+    # Handle missing values
+    if not isinstance(scores, dict):
+        return {}
+
     # Old Garmin export
     if "overallScore" in scores:
-        return scores
+
+        return {
+            "overallScore": scores.get("overallScore"),
+            "qualityScore": scores.get("qualityScore"),
+            "durationScore": scores.get("durationScore"),
+            "recoveryScore": scores.get("recoveryScore"),
+
+            "deepScore": scores.get("deepScore"),
+            "lightScore": scores.get("lightScore"),
+            "remScore": scores.get("remScore"),
+
+            "deepPercentage": None,
+            "lightPercentage": None,
+            "remPercentage": None,
+
+            "feedback": scores.get("feedback"),
+            "insight": scores.get("insight"),
+        }
+
 
     # New Garmin Connect API
     if "overall" in scores:
@@ -24,35 +46,27 @@ def normalize_sleep_scores(scores):
         return {
             "overallScore": scores.get("overall", {}).get("value"),
 
+            "qualityScore": None,
+            "recoveryScore": None,
+
+            "deepScore": None,
+            "lightScore": None,
+            "remScore": None,
+
+            "deepPercentage":
+                scores.get("deepPercentage", {}).get("value"),
+
+            "lightPercentage":
+                scores.get("lightPercentage", {}).get("value"),
+
+            "remPercentage":
+                scores.get("remPercentage", {}).get("value"),
+
             "durationScore":
                 scores.get("totalDuration", {}).get("qualifierKey"),
 
-            "stressQualifier":
-                scores.get("stress", {}).get("qualifierKey"),
-
-            "awakeQualifier":
-                scores.get("awakeCount", {}).get("qualifierKey"),
-
-            "remScore":
-                scores.get("remPercentage", {}).get("value"),
-
-            "remQualifier":
-                scores.get("remPercentage", {}).get("qualifierKey"),
-
-            "lightScore":
-                scores.get("lightPercentage", {}).get("value"),
-
-            "lightQualifier":
-                scores.get("lightPercentage", {}).get("qualifierKey"),
-
-            "deepScore":
-                scores.get("deepPercentage", {}).get("value"),
-
-            "deepQualifier":
-                scores.get("deepPercentage", {}).get("qualifierKey"),
-
-            "restlessnessScore":
-                scores.get("restlessness", {}).get("qualifierKey"),
+            "feedback": None,
+            "insight": None,
         }
 
     return {}
