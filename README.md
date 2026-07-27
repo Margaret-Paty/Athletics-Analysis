@@ -10,6 +10,8 @@ The pipeline:
 - cleans and normalizes the data
 - Produces analysis-ready CSV files
 
+The pipeline is automated to run everyday at 2300 (11 pm) and pull sleep and activity data from that day.
+
 The long term goal is to build a dashboard that visualizes training trends, recovery metrics, and performance while serving as a portfolio project demonstratind data engineering, statistics, and software development.
 
 ## Data Organization
@@ -42,6 +44,7 @@ src/
     utils/
         garmin_activity.py
         garmin_sleep.py
+        logger.py
     retrieve_data.py
     pipeline.py
 ```
@@ -55,4 +58,4 @@ src/
 - `structure/` | Converts raw Garmin JSON into standardized CSV files 
 -  `clean/` | Produces analysis-ready datasets 
 -  `config/` | Stores schema definitions used during normalization 
--  `utils/` | Helper functions shared across the project 
+-  `utils/` | Helper functions shared across the project and logs for automation
