@@ -6,27 +6,33 @@ from src.structure.structure_sleep import structure_sleep
 from src.clean.clean_activity_data import clean_activities
 from src.clean.clean_sleep_data import clean_sleep
 
+from src.utils.logger import setup_logger
+
+logger = setup_logger(__name__)
+
 def main():
-    print("=" * 50)
-    print("Athletics Analysis Pipeline")
-    print("=" * 50)
+    try: 
+        logger.info("starting Garmin pipeline")
 
-    print("\nretrieving data ")
-    retrieve_data()
+        logger.info("Retrieving Garmin data")
+        retrieve_data()
 
-    print("\nstructuring activities ")
-    structure_activities()
+        logger.info("Structuring activity data")
+        structure_activities()
 
-    print("\nstructuring sleep ")
-    structure_sleep()
+        logger.info("structuring sleep data")
+        structure_sleep()
 
-    print("\ncleaning activities ")
-    clean_activities()
+        logger.info("cleaning activity data")
+        clean_activities()
 
-    print("\ncleaning sleep ")
-    clean_sleep()
+        logger.info("cleaning sleep data")
+        clean_sleep()
 
-    print("\n pipeline complete")
+        logger.info("pipeline complete")
+    except Exception as e:
+        logger.exception(f"Pipeline failed: {e}")
+        raise
 
 if __name__ == "__main__":
     main()
