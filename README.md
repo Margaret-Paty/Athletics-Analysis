@@ -17,7 +17,7 @@ The long term goal is to build a dashboard that visualizes training trends, reco
 
 ## Data Pipeline
 
-The project followss an ETL (Extract, Transform, Load) workflow:
+The project follows an ETL (Extract, Transform, Load) workflow:
 
 ```text
 Garmin Connect API
@@ -66,6 +66,7 @@ Future analysis goals include:
 ```text
 notebooks/
     explore_activities.ipynb
+    explore_sleep.ipynb
 ```
 
 ## Project Structure
