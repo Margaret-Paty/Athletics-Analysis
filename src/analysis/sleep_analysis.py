@@ -9,8 +9,9 @@ def weekly_average():
     sleep_weekly = (sleep.groupby(["year", "week"])
                     ["sleep_hours"]
                     .mean())
+    
+    return sleep_weekly
 
-    sleep_weekly.plot()
 
 
 
