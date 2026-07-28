@@ -2,11 +2,11 @@ import pandas as pd
 # import matplotlib
 # import matplotlib.pyplot as plt
 
-def weekly_mileage_complete():
-    activities = pd.read_csv("../data/processed/clean/clean_activities.csv")
+def group_activities(df, group_by, metric):
+    activities = df
 
-    weekly = (activities.groupby(["year", "week"])
-            ["distance_miles"]
+    weekly = (activities.groupby(group_by)
+            [metric]
             .sum())
 
     return weekly
