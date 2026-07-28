@@ -72,6 +72,10 @@ notebooks/
 
 ```text
 src/
+    analysis/
+        activity_analysis.py
+        sleep_analysis.py
+        sleep_and_activities.py
     clean/
         clean_activity_data.py
         clean_sleep_data.py
@@ -98,6 +102,7 @@ src/
 -  `clean/` | Produces analysis-ready datasets 
 -  `config/` | Stores schema definitions used during normalization 
 -  `utils/` | Helper functions shared across the project and logs for automation
+- `analysis/` | Analysis functions based on code tested in the Jupyter notebook
 
 ## Technologies
 
