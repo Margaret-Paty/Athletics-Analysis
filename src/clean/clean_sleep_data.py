@@ -12,8 +12,11 @@ def clean_sleep() :
     sleep["sleep_end"] = pd.to_datetime(sleep["sleepEndTimestampGMT"], unit="ms")
     sleep["sleep_duration"] = sleep["sleep_end"] - sleep["sleep_start"]
     sleep["sleep_hours"] = (sleep["sleep_duration"].dt.total_seconds() / 3600).round(2)
-    sleep["date"] = sleep["calendarDate"]
-
+    sleep["date"] = pd.to_datetime(sleep["calendarDate"])
+    sleep["year"] = sleep["date"].dt.year
+    sleep["month"] = sleep["date"].dt.month
+    sleep["week"] = sleep["date"].dt.isocalendar().week
+    sleep["weekday"] = sleep["date"].dt.day_name()
     # Convert stages to minutes
     sleep["deep_minutes"] = sleep["deepSleepSeconds"] / 60
     sleep["light_minutes"] = sleep["lightSleepSeconds"] / 60
@@ -47,6 +50,10 @@ def clean_sleep() :
     # Designate columns for cleaned file
     clean_columns = [
         "date", 
+        "year", 
+        "month", 
+        "week", 
+        "weekday",
         "sleep_hours", 
         "deep_minutes", 
         "light_minutes", 

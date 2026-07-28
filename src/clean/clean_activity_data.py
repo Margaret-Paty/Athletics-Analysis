@@ -7,9 +7,6 @@ def clean_activities():
 
     print(activities.columns.tolist())
 
-    # print(activities.head())
-    # print(activities.info())
-
     #Rename  activity detail columns
     activities["sport_type"] = activities["sport_type"].str.lower()
     activities["activity_type"] = (activities["activity_type"].str.title().str.replace("_", " "))

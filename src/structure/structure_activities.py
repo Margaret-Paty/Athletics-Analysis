@@ -17,9 +17,7 @@ def structure_activities() :
     for file in json_files: 
         with open(file, "r") as f:
             data = json.load(f)
-            # print(file)
-            # print(type(data))
-            # print(data[0].keys())
+
             if (
                 isinstance(data, list)
                 and len(data) > 0
@@ -31,7 +29,6 @@ def structure_activities() :
                 activities = data
 
             all_activities.extend(activities)
-            # print(len(all_activities))
 
     df_act = pd.DataFrame(all_activities)
     # Flatten nested Garmin fields

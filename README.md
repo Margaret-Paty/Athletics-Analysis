@@ -9,10 +9,29 @@ The pipeline:
 - Structures raw JSON into standardized datasets
 - cleans and normalizes the data
 - Produces analysis-ready CSV files
+- Performs exploratory analysis on training, recovery, and performance trends
 
 The pipeline is automated to run everyday at 2300 (11 pm) and pull sleep and activity data from that day.
 
-The long term goal is to build a dashboard that visualizes training trends, recovery metrics, and performance while serving as a portfolio project demonstratind data engineering, statistics, and software development.
+The long term goal is to build a dashboard that visualizes training trends, recovery metrics, and performance while serving as a portfolio project demonstrating data engineering, statistics, and software development.
+
+## Data Pipeline
+
+The project followss an ETL (Extract, Transform, Load) workflow:
+
+```text
+Garmin Connect API
+        ↓
+Raw JSON Data
+        ↓
+Structured CSV Files
+        ↓
+Clean Analysis Datasets
+        ↓
+Statistical Analysis
+        ↓
+Visualization / Dashboard
+```
 
 ## Data Organization
 
@@ -29,6 +48,26 @@ data/
         clean/
             clean_{metric}.csv
 ```
+
+## Analysis
+Exploratory analysis is performed using Jupyter notebooks.
+
+Current analyses include:
+- Weekly mileage trends
+- Sleep trends by week
+- Relationship between sleep and running performance
+
+Future analysis goals include:
+- Recovery modeling
+- Training optimization
+- Performance prediction
+- Interactive dashboard development
+
+```text
+notebooks/
+    explore_activities.ipynb
+```
+
 ## Project Structure
 
 ```text
@@ -59,3 +98,13 @@ src/
 -  `clean/` | Produces analysis-ready datasets 
 -  `config/` | Stores schema definitions used during normalization 
 -  `utils/` | Helper functions shared across the project and logs for automation
+
+## Technologies
+
+- Python
+- Pandas
+- NumPy
+- Jupyter Notebook
+- Garmin Connect API
+- Git/GitHub
+- Automation (Mac Launcher)
