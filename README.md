@@ -7,7 +7,7 @@ The pipeline:
 - logs into Garmin Connect
 - Retrieves activity and wellness data
 - Structures raw JSON into standardized datasets
-- cleans and normalizes the data
+- cleans and structures the data
 - Produces analysis-ready CSV files
 - Performs exploratory analysis on training, recovery, and performance trends
 
@@ -101,7 +101,7 @@ src/
 - `pipeline.py` | Runs the complete ETL pipeline 
 - `structure/` | Converts raw Garmin JSON into standardized CSV files 
 -  `clean/` | Produces analysis-ready datasets 
--  `config/` | Stores schema definitions used during normalization 
+-  `config/` | Stores schema definitions used during cleaning and structuring 
 -  `utils/` | Helper functions shared across the project and logs for automation
 - `analysis/` | Analysis functions based on code tested in the Jupyter notebook
 
